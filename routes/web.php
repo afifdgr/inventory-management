@@ -89,7 +89,7 @@ Route::controller(CategoryController::class)->middleware(['auth', 'verified'])->
 });
 
 // Product All Route
-/* Route::controller(ProductController::class)->middleware(['auth', 'verified'])->group(function () {
+Route::controller(ProductController::class)->middleware(['auth', 'verified'])->group(function () {
     Route::get('/product/all', 'ProductAll')->name('product.all');
     Route::get('/product/add', 'ProductAdd')->name('product.add');
     Route::post('/product/store', 'ProductStore')->name('product.store');
@@ -98,6 +98,6 @@ Route::controller(CategoryController::class)->middleware(['auth', 'verified'])->
     Route::post('/product/update', 'ProductUpdate')->name('product.update');
 
     Route::get('/product/delete/{id}', 'ProductDelete')->name('product.delete');
-}); */
+});
 
 require __DIR__ . '/auth.php';
