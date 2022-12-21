@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\CustomerController;
 use App\Http\Controllers\Pos\SupplierController;
 
 /*
@@ -47,5 +49,19 @@ Route::controller(SupplierController::class)->middleware(['auth', 'verified'])->
 
     Route::get('/supplier/delete/{id}', 'SupplierDelete')->name('supplier.delete');
 });
+
+// Customer All Route
+Route::controller(CustomerController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/customer/all', 'CustomerAll')->name('customer.all');
+    Route::get('/customer/add', 'CustomerAdd')->name('customer.add');
+    Route::post('/customer/store', 'CustomerStore')->name('customer.store');
+
+    Route::get('/customer/edit/{id}', 'CustomerEdit')->name('customer.edit');
+    Route::post('/customer/update', 'CustomerUpdate')->name('customer.update');
+
+    Route::get('/customer/delete/{id}', 'CustomerDelete')->name('customer.delete');
+});
+
+
 
 require __DIR__ . '/auth.php';
