@@ -34,6 +34,10 @@
 
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.css">
+
+    <!-- Select 2 -->
+    <link href="{{ asset('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+    <!-- end Select 2  -->
 </head>
 
 <body data-topbar="dark">
@@ -121,13 +125,17 @@
     <!-- Datatable init js -->
     <script src="{{ asset('assets/backend/js/pages/datatables.init.js') }}"></script>
 
+    <script src="{{ asset('assets/backend/js/validate.min.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="{{ asset('assets/backend/js/code.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+    <script src="{{ asset('assets/backend/js/handlebars.js') }}"></script>
 
-    <script src="{{ asset('assets/backend/js/validate.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
 
     <script>
         @if (Session::has('message'))
@@ -151,6 +159,11 @@
             }
         @endif
     </script>
+
+    <!--  For Select2 -->
+    <script src="{{ asset('assets/backend/libs/select2/js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/js/pages/form-advanced.init.js') }}"></script>
+    <!-- end  For Select2 -->
 </body>
 
 </html>

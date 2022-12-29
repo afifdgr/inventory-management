@@ -22,8 +22,7 @@
                                 <h4 class="card-title">Product All Data</h4>
 
                                 <a href="{{ route('product.add') }}" class="btn btn-dark waves-effect waves-light"
-                                    style="margin-left: auto;">Add
-                                    Product</a>
+                                    style="margin-left: auto;"><i class="fas fa-plus-circle"> Add Product </i></a>
 
                             </div>
 
