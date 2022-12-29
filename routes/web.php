@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Pos\UnitController;
+use App\Http\Controllers\Pos\DefaultController;
 use App\Http\Controllers\Pos\ProductController;
 use App\Http\Controllers\Pos\CategoryController;
 use App\Http\Controllers\Pos\CustomerController;
+use App\Http\Controllers\Pos\PurchaseController;
 use App\Http\Controllers\Pos\SupplierController;
 
 /*
@@ -99,5 +101,24 @@ Route::controller(ProductController::class)->middleware(['auth', 'verified'])->g
 
     Route::get('/product/delete/{id}', 'ProductDelete')->name('product.delete');
 });
+
+// Purchase All Route
+Route::controller(PurchaseController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/purchase/all', 'PurchaseAll')->name('purchase.all');
+    Route::get('/purchase/add', 'PurchaseAdd')->name('purchase.add');
+    Route::post('/purchase/store', 'PurchaseStore')->name('purchase.store');
+
+    Route::get('/purchase/delete/{id}', 'PurchaseDelete')->name('purchase.delete');
+
+    Route::get('/purchase/pending', 'PurchasePending')->name('purchase.pending');
+    Route::get('/purchase/approve/{id}', 'PurchaseApprove')->name('purchase.approve');
+});
+
+// Default All Route
+Route::controller(DefaultController::class)->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/get-category', 'GetCategory')->name('get-category');
+    Route::get('/get-product', 'GetProduct')->name('get-product');
+});
+
 
 require __DIR__ . '/auth.php';
